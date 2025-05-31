@@ -10,7 +10,6 @@ function FindProxyForURL(url, host) {
         "placeit.net": "PROXY 23.94.188.154:8800", // Cambiado a otro proxy
         "canva.com": "PROXY 45.170.253.190:50100",
         "platzi.com": "PROXY 66.63.178.42:8800",
-        "domestika.org": "PROXY 46.3.124.181:50100", // Cambiado a otro proxy
         "crehana.com": "PROXY 46.3.124.181:50100", // Cambiado a otro proxy
         "cloud.microsoft": "PROXY 45.170.253.190:50100",
         "creativefabrica.com": "PROXY 23.94.65.184:8800",
