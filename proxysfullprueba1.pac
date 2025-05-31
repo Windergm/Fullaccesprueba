@@ -20,7 +20,7 @@ function FindProxyForURL(url, host) {
         "adobe.com": "PROXY 45.170.253.190:50100",
         "adobe.com": "PROXY 45.170.253.190:50100",
 
-        "envato.com": "PROXY 45.170.253.190:50100"
+        "envato.com": "PROXY 66.63.178.42:8800"
     };
 
     // Verifica si el host coincide con un dominio en la lista
