@@ -11,7 +11,7 @@ function FindProxyForURL(url, host) {
         "placeit.net": "PROXY 161.123.54.112:5496", // proxy propio
         "canva.com": "PROXY 93.177.95.214:8080",
         "platzi.com": "PROXY 66.63.178.42:8800",
-        "crehana.com": "PROXY 46.3.124.181:50100", // Cambiado a otro proxy
+        "crehana.com": "PROXY 91.132.124.97:8080", // Cambiado a otro proxy
         "cloud.microsoft": "PROXY 45.159.23.249:8080",
         "creativefabrica.com": "PROXY 148.135.147.24:6534",// proxy propio
         "motionarray.com": "PROXY 46.3.124.181:50100",
