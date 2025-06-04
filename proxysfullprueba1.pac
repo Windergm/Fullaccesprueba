@@ -3,7 +3,7 @@ function FindProxyForURL(url, host) {
     var proxies = {
         "adobe.com": "PROXY 102.129.178.6:4414",
         "perplexity.ai": "PROXY 176.126.111.194:8080",
-        "artlist.io": "PROXY 191.132.124.122:8080",
+        "artlist.io": "PROXY 166.88.172.19:8080",
         "chatgpt.com": "PROXY 91.132.124.97:8080",
         "domestika.org": "PROXY 193.233.211.46:8080",//no cambiar
         "freepik.es": "PROXY 46.3.124.181:50100",
