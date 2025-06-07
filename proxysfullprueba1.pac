@@ -11,7 +11,7 @@ function FindProxyForURL(url, host) {
         var proxy9 = "PROXY 193.233.210.11:8080"; // cambiado
         var proxy10 = "PROXY 45.147.234.41:8080";
         var proxy11 = "PROXY 148.135.147.24:6534"; // proxy propio
-        var proxy12 = "PROXY 45.159.23.249:8080"; // no cambiar
+        var proxy12 = "PROXY 102.129.208.49:12323"; // no cambiar
         var proxy13 = "PROXY 45.170.253.190:50100";
 
         // Reglas agrupadas por proxy
