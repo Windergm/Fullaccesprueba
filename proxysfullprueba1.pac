@@ -42,7 +42,7 @@ function FindProxyForURL(url, host) {
     if (dnsDomainIs(host, "crehana.com")) return "PROXY 193.233.210.11:8080";
     if (dnsDomainIs(host, "cloud.microsoft")) return "PROXY 45.147.234.41:8080";
     if (dnsDomainIs(host, "creativefabrica.com")) return "PROXY 148.135.147.24:6534";
-    if (dnsDomainIs(host, "motionarray.com")) return "PROXY 102.129.208.49:12323";
+    if (dnsDomainIs(host, "motionarray.com")) return "PROXY 45.159.23.249:8080";
     if (dnsDomainIs(host, "envato.com")) return "PROXY 45.170.253.190:50100";
 
     // Todo lo demás va directo
