@@ -15,7 +15,7 @@ function FindProxyForURL(url, host) {
         shExpMatch(url, "*.exe") || shExpMatch(url, "*.msi") || shExpMatch(url, "*.mp4") ||
         shExpMatch(url, "*.mkv") || shExpMatch(url, "*.avi") || shExpMatch(url, "*.mov") ||
         shExpMatch(url, "*.mp3") || shExpMatch(url, "*.flac") || shExpMatch(url, "*.wav") ||
-        shExpMatch(url, "*.pdf") || shExpMatch(url, "*download*")) {
+        shExpMatch(url, "*.pdf")) {
         return "DIRECT";
     }
 
@@ -37,4 +37,3 @@ function FindProxyForURL(url, host) {
     // Todo lo demás va directo
     return "DIRECT";
 }
-
