@@ -28,8 +28,3 @@ function FindProxyForURL(url, host) {
     // Todo lo demás va directo
     return "DIRECT";
 }
-```
-
-Este script ahora **usa proxy solo para los dominios especificados** y **se conecta directamente para descargas y todo lo demás**, sin excepciones para IPs privadas o nombres locales.
-
-¿Quieres que también se conecte por proxy para ciertos subdominios o tipos de contenido específicos?
