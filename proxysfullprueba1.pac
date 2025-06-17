@@ -1,33 +1,38 @@
 function FindProxyForURL(url, host) {
     host = host.toLowerCase();
-
-    // Conexión directa para archivos grandes o descargas
-    if (shExpMatch(url, "*.zip") || shExpMatch(url, "*.rar") || shExpMatch(url, "*.7z") ||
-        shExpMatch(url, "*.tar") || shExpMatch(url, "*.gz") || shExpMatch(url, "*.iso") ||
-        shExpMatch(url, "*.exe") || shExpMatch(url, "*.msi") || shExpMatch(url, "*.mp4") ||
-        shExpMatch(url, "*.mkv") || shExpMatch(url, "*.avi") || shExpMatch(url, "*.mov") ||
-        shExpMatch(url, "*.mp3") || shExpMatch(url, "*.flac") || shExpMatch(url, "*.wav") ||
-        shExpMatch(url, "*.pdf")) {
-        return "DIRECT";
+    const largeFiles = ["zip", "rar", "7z", "tar", "gz", "iso", "exe", "msi", "mp4", "mkv", "avi", "mov", "mp3", "flac", "wav"];
+    
+    // Conexión directa para archivos grandes
+    for (const ext of largeFiles) {
+        if (shExpMatch(url, `*.${ext}`) || shExpMatch(url, `*.${ext.toUpperCase()}`)) {
+            return "DIRECT";
+        }
     }
 
-    // Reglas de proxy específicas por dominio (incluye subdominios)
-    if (dnsDomainIs(host, "adobe.com") || shExpMatch(host, "*.adobe.com")) return "PROXY 102.129.178.6:4414";
-    if (dnsDomainIs(host, "perplexity.ai") || shExpMatch(host, "*.perplexity.ai") ||
-        dnsDomainIs(host, "artlist.io") || shExpMatch(host, "*.artlist.io")) return "PROXY 96.62.127.25:50100";
-    if (dnsDomainIs(host, "chatgpt.com") || shExpMatch(host, "*.chatgpt.com")) return "PROXY 91.132.124.97:8080";
-    if (dnsDomainIs(host, "domestika.org") || shExpMatch(host, "*.domestika.org")) return "PROXY 193.233.211.46:8080";
-    if (dnsDomainIs(host, "freepik.com") || shExpMatch(host, "*.freepik.com") ||
-        dnsDomainIs(host, "freepik.es") || shExpMatch(host, "*.freepik.es")) return "PROXY 46.3.124.181:50100";
-    if (dnsDomainIs(host, "placeit.net") || shExpMatch(host, "*.placeit.net")) return "PROXY 161.123.54.112:5496";
-    if (dnsDomainIs(host, "canva.com") || shExpMatch(host, "*.canva.com")) return "PROXY 93.177.95.214:8080";
-    if (dnsDomainIs(host, "platzi.com") || shExpMatch(host, "*.platzi.com")) return "PROXY 45.136.27.41:8080";
-    if (dnsDomainIs(host, "crehana.com") || shExpMatch(host, "*.crehana.com")) return "PROXY 193.233.210.11:8080";
-    if (dnsDomainIs(host, "cloud.microsoft") || shExpMatch(host, "*.cloud.microsoft")) return "PROXY 45.147.234.41:8080";
-    if (dnsDomainIs(host, "creativefabrica.com") || shExpMatch(host, "*.creativefabrica.com")) return "PROXY 148.135.147.24:6534";
-    if (dnsDomainIs(host, "motionarray.com") || shExpMatch(host, "*.motionarray.com")) return "PROXY 14.102.232.254:50100";
-    if (dnsDomainIs(host, "envato.com") || shExpMatch(host, "*.envato.com")) return "PROXY 45.170.253.190:50100";
+    // Reglas de proxy específicas por dominio (ordenadas alfabéticamente)
+    const proxyRules = {
+        "adobe.com": "102.129.178.6:4414",
+        "artlist.io": "96.62.127.25:50100",
+        "canva.com": "93.177.95.214:8080",
+        "chatgpt.com": "91.132.124.97:8080",
+        "creativefabrica.com": "148.135.147.24:6534",
+        "crehana.com": "193.233.210.11:8080",
+        "domestika.org": "193.233.211.46:8080",
+        "envato.com": "45.170.253.190:50100",
+        "freepik.com": "46.3.124.181:50100",
+        "freepik.es": "46.3.124.181:50100",  // Agrupado mismo proxy
+        "microsoft.com": "45.147.234.41:8080",  // Dominio corregido
+        "motionarray.com": "14.102.232.254:50100",
+        "perplexity.ai": "96.62.127.25:50100",  // Agrupado con artlist.io
+        "placeit.net": "161.123.54.112:5496",
+        "platzi.com": "45.136.27.41:8080"
+    };
 
-    // Todo lo demás va directo
+    for (const domain in proxyRules) {
+        if (dnsDomainIs(host, domain)) {
+            return `PROXY ${proxyRules[domain]}`;
+        }
+    }
+
     return "DIRECT";
 }
